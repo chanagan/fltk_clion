@@ -7,11 +7,19 @@
 //
 
 #include <FL/Fl.H>
-#include <FL/Fl_Window.H>
-#include <FL/Fl_Button.H>
+//#include <FL/Fl_Window.H>
+//#include <FL/Fl_Button.H>
+#include "SimpleWindow.h"
 using namespace std;
 //#include "FL/Fl.h"
 
+int main() {
+  SimpleWindow win(300, 200, "SimpleWindow");
+  return Fl::run();
+}
+
+
+/*
 void but_cb(Fl_Widget* o, void*) {
   auto* b = (Fl_Button*)o;
   b->label("Good job");
@@ -29,6 +37,5 @@ int main() {
   but.callback(but_cb);
   win.show();
   return Fl::run();
-
-
 }
+*/
