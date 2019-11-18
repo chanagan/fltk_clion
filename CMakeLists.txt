@@ -22,7 +22,7 @@ if (${APPLE})
 endif()
 if (${WIN32})
     include_directories(C:\\Users\\chris.hanagan\\appDev\\fltk-1.3.4-1-win32\\include)
-    link_directories(C:\\Users\\chris.hanagan\\appDev\\fltk\\cmake-build-debug\\lib)
+    link_directories(C:\\Users\\chris.hanagan\\appDev\\fltk-1.3.4-1-win32\\lib)
     set(WIN_LIBS comctl32 ws2_32 kernel32 user32 gdi32 winspool shell32 ole32 oleaut32 uuid comdlg32 advapi32)
 endif()
 
