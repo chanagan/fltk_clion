@@ -6,6 +6,10 @@
 
 SimpleWindow::SimpleWindow(int w, int h, const char *title) : Fl_Window(w, h, title) {
     begin();
+    
+    menu = new Fl_Menu_Bar (0,0, 720, 28);
+    menu->add("File/Open", 0, cb_menu);
+    
     copy = new Fl_Button(10, 150, 70, 30, "C&opy");
     copy->callback(cb_copy, this);
 
@@ -40,3 +44,12 @@ void SimpleWindow::cb_quit(Fl_Widget *, void *v) {
 void SimpleWindow::cb_quit_i() {
     hide();
 }
+
+
+void SimpleWindow::cb_menu(Fl_Widget *w, void *) {
+    const Fl_Menu_Bar *menubar = (Fl_Menu_Bar*)w;
+    char picked[80];
+    menubar->item_pathname(picked, sizeof(picked)-1);
+    printf("CALLBACK: you picked '%s'\n", picked);
+}
+
