@@ -1,3 +1,9 @@
+.vs
+./msvs_fltk.sln
+./msvs_fltk.vcxproj
+./msvs_fltk.vcxproj.filters
+/msvs_fltk.vcxproj.user
+
 ### C++ template
 # Compiled Object files
 *.slo
