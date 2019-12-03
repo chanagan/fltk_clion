@@ -13,6 +13,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SRCS main.cpp SimpleWindow.cpp SimpleWindow.h)
+#set(SRCS main.cpp )
 
 if (${APPLE})
     set(FLTK_DIR /usr/local/Cellar/fltk/1.3.5)

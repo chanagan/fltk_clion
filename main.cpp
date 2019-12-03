@@ -15,6 +15,7 @@ using namespace std;
 
 int main() {
   SimpleWindow win(300, 200, "SimpleWindow");
+  win.show();
   return Fl::run();
 }
 

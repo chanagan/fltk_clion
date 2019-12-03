@@ -10,16 +10,22 @@
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Input.H>
 #include <FL/Fl_Output.H>
+#include <FL/Fl_Menu_Item.H>
+#include <FL/Fl_Menu_Bar.H>
+
 using namespace std;
 
 class SimpleWindow : public Fl_Window {
  public:
   SimpleWindow(int w, int h, const char* title);
-  ~SimpleWindow();
+  ~SimpleWindow() override;
+
   Fl_Button* copy;
   Fl_Button* quit;
   Fl_Input* inp;
   Fl_Output* out;
+
+  Fl_Menu_Bar* menuBar;
 
  private:
   static void cb_copy(Fl_Widget*, void*);
@@ -27,6 +33,13 @@ class SimpleWindow : public Fl_Window {
 
   static void cb_quit(Fl_Widget*, void*);
   inline void cb_quit_i();
+
+  static void Menu_CB(Fl_Widget*w, void*data);
+
+
+// Callback method with class access
+  void Menu_CB2();
+
 };
 
 #endif //FLTK_CLION_SIMPLEWINDOW_H
