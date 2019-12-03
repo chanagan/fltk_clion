@@ -6,11 +6,13 @@
 
 SimpleWindow::SimpleWindow(int w, int h, const char *title) : Fl_Window(w, h, title) {
   Fl_Menu_Item mainMenuTable[] = {
-      {"Red",	FL_ALT+'r'},
-      {"Green",	FL_ALT+'g'},
-      {"Blue",	FL_ALT+'b'},
-      {"Strange",	FL_ALT+'s', 0, 0, FL_MENU_INACTIVE},
-      {"&Charm",	FL_ALT+'c'},
+	  {"File", 0, 0, 0, FL_SUBMENU},
+      {"File/New", 0, Menu_CB, (void*)this},
+      {"File/Open", 0, Menu_CB, (void*)this},
+      {"File/Close", 0, Menu_CB, (void*)this},
+  {0},
+      {"File/Save", 0, Menu_CB, (void*)this},
+      {"File/Save As", 0, Menu_CB, (void*)this, FL_MENU_DIVIDER},
       {"Truth",	FL_ALT+'t'},
       {"Beauty",	FL_ALT+'b'},
       {0}};
@@ -19,10 +21,20 @@ SimpleWindow::SimpleWindow(int w, int h, const char *title) : Fl_Window(w, h, ti
 //    Fl_Window window(700, 400);
 
   menuBar = new Fl_Menu_Bar(0, 0, 300, 25);
+  menuBar->copy(mainMenuTable);
+
 //  menuBar->menu(mainMenuTable);
-  menuBar->add("File/Open", 0, Menu_CB, (void*)this);    // userdata is always 'this'
-  menuBar->add("File/Quit", 0, Menu_CB, (void*)this);
-  menuBar->add("Help/Help", 0, Menu_CB, (void*)this);
+  //menuBar->add("File/New", 0, Menu_CB, (void*)this);    // userdata is always 'this'
+  //menuBar->add("File/Open", 0, Menu_CB, (void*)this);
+  //menuBar->add("File/Close", 0, Menu_CB, (void*)this);
+  //menuBar->add("File/Save", 0, Menu_CB, (void*)this);
+  //menuBar->add("File/Save As", 0, Menu_CB, (void*)this, FL_MENU_DIVIDER);
+  //menuBar->add("File/Quit", 0, cb_quit, (void*)this);
+
+  //menuBar->add("Inventory/Load", 0, Menu_CB, (void*)this);
+
+  //menuBar->add("Help/Help", 0, Menu_CB, (void*)this);
+
   copy = new Fl_Button(10, 150, 70, 30, "C&opy");
   copy->callback(cb_copy, this);
 
