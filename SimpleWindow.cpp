@@ -7,15 +7,18 @@
 SimpleWindow::SimpleWindow(int w, int h, const char *title) : Fl_Window(w, h, title) {
   Fl_Menu_Item mainMenuTable[] = {
 	  {"File", 0, 0, 0, FL_SUBMENU},
-      {"File/New", 0, Menu_CB, (void*)this},
-      {"File/Open", 0, Menu_CB, (void*)this},
-      {"File/Close", 0, Menu_CB, (void*)this},
-  {0},
-      {"File/Save", 0, Menu_CB, (void*)this},
-      {"File/Save As", 0, Menu_CB, (void*)this, FL_MENU_DIVIDER},
-      {"Truth",	FL_ALT+'t'},
-      {"Beauty",	FL_ALT+'b'},
-      {0}};
+      {"&New", 0, Menu_CB, (void*)this},
+      {"&Open", 0, Menu_CB, (void*)this},
+      {"&Close", 0, Menu_CB, (void*)this},
+      {"Save", 0, Menu_CB, (void*)this},
+      {"Save As", 0, Menu_CB, (void*)this, FL_MENU_DIVIDER},
+      {"&Quit",	0, cb_quit, (void*)this},
+      {0},  // close File
+      {"Inventory", 0, 0, 0, FL_SUBMENU},
+      {"Load", 0, Menu_CB, (void*)this},
+      {0},    // close Inventory
+      {0}     // close main menu
+  };
 
   begin();
 //    Fl_Window window(700, 400);
@@ -72,6 +75,10 @@ void SimpleWindow::cb_quit_i() {
 }
 // Static menu callback
 void  SimpleWindow::Menu_CB(Fl_Widget*w, void*data) {
+  int i;
+  i = 27;
+  auto* o = (SimpleWindow*)data;
+  o->Menu_CB2();
 //  MyApp *o = (MyApp*)data;
 //  o->Menu_CB2();
 }
